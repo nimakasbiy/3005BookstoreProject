@@ -277,7 +277,6 @@ public class Customer {
 
                     if (!destination.next()) {
                         System.out.println("Your shipping address was not found");
-                        //searchMenu(username);
                         return;
                     } else {
                         PreparedStatement pstmt3 = connection.prepareStatement("insert into orders (order_number, username, origin, destination, date_ordered, status)" +
@@ -370,7 +369,6 @@ public class Customer {
 
                 if (!orderResult.next()) {
                     System.out.println("Order #" + orderNumber + " does not exist under your account.");
-                    //searchMenu(username);
                     return;
                 } else {
                     System.out.println("YOUR ORDER");

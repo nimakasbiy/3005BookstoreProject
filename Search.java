@@ -141,7 +141,6 @@ public class Search {
 
                 if (!searchResult.next()){
                     System.out.println("No books found with Author containing: " + authorToSearch);
-                    //searchMenu(username);
                     returnToSearch = true;
                 }
                 else {
@@ -201,7 +200,6 @@ public class Search {
 
                 if (!searchResult.next()){
                     System.out.println("No books found with Genre containing: " + genreToSearch);
-                    //searchMenu(username);
                     returnToSearch = true;
                 }
                 else {

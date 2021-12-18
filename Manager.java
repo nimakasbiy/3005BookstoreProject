@@ -32,7 +32,6 @@ public class Manager {
                 try{
                     PreparedStatement pstmt3 = connection.prepareStatement("insert into publisher (name, address, email, phone_no, bank_acc)"
                             + " values (?, ?, ?, ?, ?)");
-                    //pstmt3.setInt(1, publisherID);
                     pstmt3.setString(1, publisherName);
                     pstmt3.setString(2, address);
                     pstmt3.setString(3, email);
@@ -54,7 +53,6 @@ public class Manager {
         }catch (Exception sqle){
             System.out.println("Exception: " + sqle);
         }finally {
-            //try { if (publisherCount != null) publisherCount.close(); } catch (Exception e) {};
             try { if (statement != null) statement.close(); } catch (Exception e) {};
             try { if (connection != null) connection.close(); } catch (Exception e) {};
             return result;
