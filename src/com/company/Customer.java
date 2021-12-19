@@ -73,6 +73,7 @@ public class Customer {
                     int registerResult = pstmt2.executeUpdate();
 
                     if (registerResult == 1) {
+                        System.out.println("Welcome, " + username);
                         registered = true;
                     }
                 }
