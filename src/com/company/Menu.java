@@ -7,6 +7,8 @@ import java.util.Scanner;
 
 public class Menu {
 
+    /* Function that displays the menu for a customer
+    * and prompts the user for a valid choice */
     static void searchMenu(String username){
         System.out.println("\nBrowse our collection!");
         System.out.println( "(1) All our books\n" +
@@ -96,6 +98,8 @@ public class Menu {
         }
     }
 
+    /* Function that displays the menu for a manager/bookstore owner
+     * and prompts the user for a valid choice */
     static void managerMenu(){
         System.out.println("\nManager Mode:");
         System.out.println( "(1) All our books\n" +
@@ -131,6 +135,8 @@ public class Menu {
         else if (managerChoice == 10){Manager.commissionReport();}
     }
 
+    /* Function that displays the initial welcome menu
+     * and prompts the user for a valid choice */
     static void welcomeMenu(){
         String currUser = null;
 
