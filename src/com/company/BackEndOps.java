@@ -4,6 +4,8 @@ import java.sql.*;
 
 public class BackEndOps {
 
+    /* Function that applies the commission amount calculated my the makeOrder function in the Customer class
+    * to the corresponding publisher's bank_acc attribute */
     static void saleCommission(String username){
 
         Connection connection = null;
@@ -48,6 +50,7 @@ public class BackEndOps {
 
     }
 
+    /* Function that adds a sale tuple for each book bought by a customer. This is done for reporting purposes. */
     static void recordSale(String username, int bookID, String title, String genre, String author, String publisher, int quantity, float price){
 
         Connection connection = null;

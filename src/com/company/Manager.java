@@ -5,6 +5,9 @@ import java.util.Scanner;
 
 public class Manager {
 
+    /* Function that adds a publisher to the database using user-given parameters
+       This function is only invoked when th user is in the manager menu and tries to add a book
+       with a publisher not already in the database */
     static boolean addPublisher(String publisherName){
         Connection connection = null;
         Statement statement = null;
@@ -59,6 +62,8 @@ public class Manager {
         }
     }
 
+    /* Function that takes book information in from user and attempts to add the book to the database
+       If the user inputs the name of a publisher that does not currently exist, addPublisher() is invoked */
     static void addBook(){
         Connection connection = null;
         Statement statement = null;
@@ -165,6 +170,8 @@ public class Manager {
         }
     }
 
+    /* Function that prompts user for the ID of the book they want to remove from the database.
+       The function then attempts to delete the book from the database and returns to menu afterwards */
     static void removeBook(){
         Connection connection = null;
         ResultSet bookCheck = null;
@@ -191,7 +198,6 @@ public class Manager {
                 }
 
                 try{
-
                     PreparedStatement pstmt2 = connection.prepareStatement("delete from book where id = ?");
                     pstmt2.setInt(1, bookID);
 
@@ -214,6 +220,8 @@ public class Manager {
         }
     }
 
+    /* Function that displays the Best Sellers report.
+    * This report orders all books bought by the total amount of revenue they have brought to the store. */
     static void bestSellersReport(){
         Connection connection = null;
         Statement statement = null;
@@ -257,6 +265,8 @@ public class Manager {
         }
     }
 
+    /* Function that displays the Sales per Genre report.
+     * This report orders all genres of books bought by the total amount of revenue they have brought to the store. */
     static void salesPerGenreReport(){
         Connection connection = null;
         Statement statement = null;
@@ -300,6 +310,8 @@ public class Manager {
         }
     }
 
+    /* Function that displays the Sales per Author report.
+     * This report orders all Author of books bought by the total amount of revenue they have brought to the store. */
     static void salesPerAuthorReport(){
         Connection connection = null;
         Statement statement = null;
@@ -343,6 +355,8 @@ public class Manager {
         }
     }
 
+    /* Function that displays the Publisher Commission report.
+     * This report orders all Publishers by the total amount of commission they have earned from sales. */
     static void commissionReport(){
         Connection connection = null;
         Statement statement = null;

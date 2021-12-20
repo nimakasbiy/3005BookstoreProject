@@ -5,6 +5,9 @@ import java.util.Random;
 
 public class Triggers {
 
+    /* Function that is triggered by makeOrder() when a book in the bookstore's stock goes below 10 units
+    * The function uses java's Random library to add a random amount between 10 and 99 to the book's quantity in
+    * the store. */
     static void stockOrderTrigger(String bookTitle){
 
         Connection connection = null;

@@ -5,8 +5,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
+// CUSTOMER CLASS //
 public class Customer {
 
+    /* Function that attempts to match the credentials given by the user to a customer's username and password
+    attributes in the database. If there is a match, the currUser is set to the identified user, the user's identity
+    as determined here is utilizied in almost all the functions in this application */
     static boolean login(String username, String password){
 
         boolean loggedIn = false;
@@ -43,6 +47,9 @@ public class Customer {
         return loggedIn;
     }
 
+    /* Function that attempts to create a user based on the details inputted by the user
+     If successfully inserted into the database, the function directs the user to the customer menu
+     function with the information of the registered user */
     static boolean register(String username, String password, String card_no, String billingAddress, String shippingAddress){
 
         boolean registered = false;
@@ -95,6 +102,7 @@ public class Customer {
         return registered;
     }
 
+    /* Function that adds a book to the user's basket based on their book selection (via book ID) */
     static void addToBasket(String username){
 
         Connection connection = null;
@@ -143,6 +151,7 @@ public class Customer {
                     quantity = quantity_scn.nextInt();
                 }
 
+                // Calculating the total price of the book to add to basket (book * quantity)
                 float totalPrice = bookResult.getFloat(6) * quantity;
                 Math.round(totalPrice * 100);
 
@@ -173,7 +182,6 @@ public class Customer {
                     System.out.println("Could not update stock");
                     return;
                 }
-
             }
         }catch(Exception sqle){
             System.out.println("Exception: " +sqle);
@@ -185,6 +193,9 @@ public class Customer {
         }
     }
 
+    /* Function that displays the currently logged in customer's basket. If their basket it NOT empty,
+       this function then calls the makeOrder() function to prompt the user if they would like to order the items
+       in their basket. */
     static void viewBasket(String username){
 
         Connection connection = null;
@@ -199,8 +210,6 @@ public class Customer {
             statement = connection.createStatement();
 
             {
-                String order;
-
                 System.out.println("YOUR BASKET");
                 PreparedStatement pstmt = connection.prepareStatement("select book_id, book_title, quantity, price, 'genre', 'author', 'publisher' from basket where username = ?");
                 pstmt.setString(1, username);
@@ -237,6 +246,12 @@ public class Customer {
         }
     }
 
+    /* Function that asks user if they want to checkout the items in their basket..
+       IF YES, creates a new order tuple,
+               creates a new sale tuple,
+               wipes user's basket,
+               calculates commission per book bought and adds the amount to each corresponding publisher's bank account
+         ELSE, returns to menu */
     static void makeOrder(String username){
 
         Connection connection = null;
@@ -348,6 +363,8 @@ public class Customer {
         }
     }
 
+    /* Function  that shows displays the user's order based on the order number they provide,
+       returns to menu after finished. */
     static void trackOrder(int orderNumber, String username){
 
         Connection connection = null;

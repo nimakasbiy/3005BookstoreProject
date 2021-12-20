@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Search {
 
+    /* Function that returns all books in the bookstore, formatted into an easily readable table */
     static void searchAllBooks(String username){
 
         Connection connection = null;
@@ -59,6 +60,8 @@ public class Search {
 
     }
 
+    /* Function that returns all books that match the user-given search term for Title
+    * BONUS FEATURE: search terms do not need to be exact, the query uses 'contains' logic */
     static void searchByTitle(String username){
         Connection connection = null;
         Statement statement = null;
@@ -118,6 +121,8 @@ public class Search {
         }
     }
 
+    /* Function that returns all books that match the user-given search term for Author
+     * BONUS FEATURE: search terms do not need to be exact, the query uses 'contains' logic */
     static void searchByAuthor(String username){
         Connection connection = null;
         Statement statement = null;
@@ -177,6 +182,8 @@ public class Search {
         }
     }
 
+    /* Function that returns all books that match the user-given search term for Genre
+     * BONUS FEATURE: search terms do not need to be exact, the query uses 'contains' logic */
     static void searchByGenre(String username){
         Connection connection = null;
         Statement statement = null;
